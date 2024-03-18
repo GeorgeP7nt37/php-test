@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+</head>
+<body>
+    <h1>Welcome to the Greeting Page</h1>
+    
+    <?php
+    // Check if the form has been submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve the input value from the form
+        $name = $_POST["name"];
+        // Display the greeting message with the user's name
+        echo "<p>Hello, $name! Welcome to our website.</p>";
+    }
+    ?>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="name">Enter your name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
